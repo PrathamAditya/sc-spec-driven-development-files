@@ -54,3 +54,46 @@ exports.agentsRouter.delete('/:id', (req, res) => {
         return res.status(404).json({ error: 'Agent not found' });
     res.status(204).end();
 });
+exports.agentsRouter.get('/:id/therapies', (req, res) => {
+    const agent = db_1.db.prepare('SELECT * FROM agents WHERE id = ?').get(Number(req.params.id));
+    if (!agent)
+        return res.status(404).json({ error: 'Agent not found' });
+    const therapies = db_1.db
+        .prepare(`SELECT t.* FROM therapies t
+       JOIN agent_therapies at ON at.therapy_id = t.id
+       WHERE at.agent_id = ?
+       ORDER BY t.id`)
+        .all(agent.id);
+    res.json(therapies);
+});
+exports.agentsRouter.post('/:id/therapies', (req, res) => {
+    var _a;
+    const agent = db_1.db.prepare('SELECT * FROM agents WHERE id = ?').get(Number(req.params.id));
+    if (!agent)
+        return res.status(404).json({ error: 'Agent not found' });
+    const therapyId = ((_a = req.body) !== null && _a !== void 0 ? _a : {}).therapy_id;
+    if (!Number.isInteger(therapyId)) {
+        return res.status(400).json({ error: 'therapy_id is required' });
+    }
+    const therapy = db_1.db.prepare('SELECT * FROM therapies WHERE id = ?').get(Number(therapyId));
+    if (!therapy)
+        return res.status(404).json({ error: 'Therapy not found' });
+    const already = db_1.db
+        .prepare('SELECT 1 FROM agent_therapies WHERE agent_id = ? AND therapy_id = ?')
+        .get(agent.id, therapyId);
+    if (already)
+        return res.status(409).json({ error: 'Therapy already assigned to agent' });
+    db_1.db.prepare('INSERT INTO agent_therapies (agent_id, therapy_id) VALUES (?, ?)').run(agent.id, therapyId);
+    res.status(201).json(therapy);
+});
+exports.agentsRouter.delete('/:id/therapies/:therapyId', (req, res) => {
+    const agent = db_1.db.prepare('SELECT * FROM agents WHERE id = ?').get(Number(req.params.id));
+    if (!agent)
+        return res.status(404).json({ error: 'Agent not found' });
+    const result = db_1.db
+        .prepare('DELETE FROM agent_therapies WHERE agent_id = ? AND therapy_id = ?')
+        .run(agent.id, Number(req.params.therapyId));
+    if (result.changes === 0)
+        return res.status(404).json({ error: 'Assignment not found' });
+    res.status(204).end();
+});

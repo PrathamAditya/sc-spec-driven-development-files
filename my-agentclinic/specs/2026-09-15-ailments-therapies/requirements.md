@@ -26,7 +26,8 @@ In scope:
   `/api/agents/:id/therapies` (list, assign, remove).
 - Dashboard sections listing ailments, therapies, and each agent's
   assigned therapies, reusing the responsive layout.
-- Validation and API smoke tests (Vitest).
+- Validation and API smoke tests (Vitest), kept in the root `tests/`
+  folder per `specs/tech-stack.md`.
 
 Out of scope (for now):
 

@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2026-09-15
+- feat: Ailments & Therapies feature — ailments and therapies entities, CRUD APIs (`/api/ailments`, `/api/therapies`), agent–therapy assignments (`/api/agents/:id/therapies`), dashboard sections, and Vitest API smoke tests in `tests/`
+- test: Add API smoke tests for ailments, therapies, and agent–therapy assignments (31 tests total, using an exported `app` + in-memory SQLite)
+- refactor: Extract testable `app.ts`; make SQLite path configurable via `AGENTCLINIC_DB`
 - refactor: Merge roadmap phases 2 and 3; update implementation plan for Agents, Ailments & Therapies
 - feat: Responsive design — mobile-first CSS media queries, scrollable tables
 - test: Add Vitest tests for escapeHtml and testing tooling

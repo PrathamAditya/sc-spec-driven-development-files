@@ -11,7 +11,7 @@ Series of numbered task groups derived from `specs/roadmap.md`.
 - 1.5 Add a migrations runner; create the `agents` table.
 - 1.6 Serve a health/dashboard route and verify the server boots.
 
-## Task Group 2 — Agents, Ailments & Therapies (In progress)
+## Task Group 2 — Agents, Ailments & Therapies (Done)
 
 ### Agents (Done)
 
@@ -22,13 +22,13 @@ Series of numbered task groups derived from `specs/roadmap.md`.
 - 2.5 Make the layout responsive: mobile-first media queries and a
   horizontally scrollable `.table-wrap` for tables.
 
-### Ailments & Therapies (Next)
+### Ailments & Therapies (Done)
 
-- 2.6 Data model and migration for ailments (an AgentClinic table describing conditions).
-- 2.7 Data model and migration for therapies (treatments available at the clinic).
-- 2.8 Link agents to therapies (many-to-many or therapy assignments table).
-- 2.9 CRUD endpoints for ailments and therapies; endpoints to manage agent-therapy links.
-- 2.10 Dashboard sections listing ailments and therapies.
+- 2.6 Data model and migration for ailments (an AgentClinic table describing conditions). — Done
+- 2.7 Data model and migration for therapies (treatments available at the clinic). — Done
+- 2.8 Link agents to therapies (many-to-many or therapy assignments table). — Done
+- 2.9 CRUD endpoints for ailments and therapies; endpoints to manage agent-therapy links. — Done
+- 2.10 Dashboard sections listing ailments and therapies. — Done
 
 ## Task Group 3 — Bookings
 
