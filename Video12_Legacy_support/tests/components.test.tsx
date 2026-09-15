@@ -19,6 +19,12 @@ describe("Header", () => {
     const html = Header({}).toString();
     expect(html).toContain("AgentClinic");
   });
+
+  it("links to the feedback page", () => {
+    const html = Header({}).toString();
+    expect(html).toContain('href="/feedback"');
+    expect(html).toContain("Feedback");
+  });
 });
 
 describe("Footer", () => {

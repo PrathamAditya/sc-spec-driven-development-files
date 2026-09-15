@@ -32,6 +32,9 @@ export function dashboardRouter(db: Database.Database) {
      GROUP BY al.id, al.name
      ORDER BY al.name`
   );
+  const selectRecentFeedback = db.prepare(
+    "SELECT id, name, role, message, created_at FROM feedback ORDER BY created_at DESC, id DESC LIMIT 10"
+  );
 
   router.get("/", (c) => {
     const stats = {
@@ -59,6 +62,13 @@ export function dashboardRouter(db: Database.Database) {
       name: string;
       agent_count: number;
     }[];
+    const recentFeedback = selectRecentFeedback.all() as {
+      id: number;
+      name: string;
+      role: string;
+      message: string;
+      created_at: string;
+    }[];
 
     return c.html(
       <Dashboard
@@ -66,6 +76,7 @@ export function dashboardRouter(db: Database.Database) {
         agents={agents}
         appointments={appointments}
         ailments={ailments}
+        recentFeedback={recentFeedback}
       />
     );
   });
