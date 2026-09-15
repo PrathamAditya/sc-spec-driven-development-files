@@ -8,3 +8,4 @@
   (`src/components/` — Header, Main, Footer, Layout); styled by `public/styles.css`
   served via `express.static`; works in a modern browser
 - **Dev tooling:** `tsc` for build, `tsx watch` for the dev server
+- **Testing:** Vitest for validation (unit + API smoke tests)
