@@ -8,3 +8,19 @@
   outline: 2px solid var(--pico-primary);
   outline-offset: 2px;
 }
+
+/* Reviews */
+.reviews-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.review-card h3 {
+  margin: 0.25rem 0;
+}
+
+@media (min-width: 768px) {
+  .reviews-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
