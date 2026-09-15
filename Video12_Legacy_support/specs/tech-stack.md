@@ -40,10 +40,17 @@ AgentClinic is a server-side TypeScript application. All rendering happens on th
 
 ## CSS Approach
 
-All CSS is mobile-first: base styles target small screens and `min-width` media queries progressively enhance for larger viewports. CSS custom properties hold spacing, color, and sizing tokens so values stay consistent across breakpoints. No CSS framework or build step — the browser receives a single flat stylesheet.
+All CSS is mobile-first: base styles target small screens and `min-width` media queries progressively enhance for larger viewports. CSS custom properties hold spacing, color, and sizing tokens so values stay consistent across breakpoints. No CSS framework or build step — the browser receives a single flat stylesheet. Responsive behavior is a stated product requirement for every page, for every audience.
+
+## Constraints (locked after stakeholder interview)
+
+- **No stack gaps**: the current stack is final. Do not introduce new languages, frameworks, or libraries for their own sake.
+- **No external dependencies**: no third-party embeds, maps APIs, or storage services. The about-page map, reviews, and feedback are all built in-house (e.g., a static/stylized map placeholder; reviews stored in SQLite).
+- Everything needed must be self-contained in this repository.
 
 ## What We Are Not Using
 
 - No React, Vue, or Svelte — server-side rendering keeps the stack simple
 - No ORM — SQL is sufficient at this scale
 - No Docker — not yet; that's a later phase concern
+- No CDN-delivered CSS frameworks or external widgets
