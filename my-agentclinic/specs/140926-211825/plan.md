@@ -11,7 +11,7 @@ Series of numbered task groups derived from `specs/roadmap.md`.
 - 1.5 Add a migrations runner; create the `agents` table.
 - 1.6 Serve a health/dashboard route and verify the server boots.
 
-## Task Group 2 — Agents, Ailments & Therapies (In progress)
+## Task Group 2 — Agents, Ailments & Therapies (Done)
 
 ### Agents (Done)
 
@@ -22,26 +22,28 @@ Series of numbered task groups derived from `specs/roadmap.md`.
 - 2.5 Make the layout responsive: mobile-first media queries and a
   horizontally scrollable `.table-wrap` for tables.
 
-### Ailments & Therapies (Next)
+### Ailments & Therapies (Done)
 
-- 2.6 Data model and migration for ailments (an AgentClinic table describing conditions).
-- 2.7 Data model and migration for therapies (treatments available at the clinic).
-- 2.8 Link agents to therapies (many-to-many or therapy assignments table).
-- 2.9 CRUD endpoints for ailments and therapies; endpoints to manage agent-therapy links.
-- 2.10 Dashboard sections listing ailments and therapies.
+- 2.6 Data model and migration for ailments (an AgentClinic table describing conditions). — Done
+- 2.7 Data model and migration for therapies (treatments available at the clinic). — Done
+- 2.8 Link agents to therapies (many-to-many or therapy assignments table). — Done
+- 2.9 CRUD endpoints for ailments and therapies; endpoints to manage agent-therapy links. — Done
+- 2.10 Dashboard sections listing ailments and therapies. — Done
 
-## Task Group 3 — Bookings
+## Task Group 3 — Bookings (Done)
 
-- 3.1 Data model and migration for appointments (agent + human + time slot + status).
-- 3.2 CRUD endpoints for appointments, scoped by agent and cliniologist/human.
-- 3.3 Booking flow to schedule, reschedule, and cancel appointments.
-- 3.4 Dashboard UI to view and manage upcoming bookings.
+- 3.1 Data model and migration for appointments (agent + human + time slot + status). — Done
+- 3.2 CRUD endpoints for appointments; bookings scoped by agent listed
+  at `/api/agents/:id/bookings`. — Done
+- 3.3 Booking flow to schedule, reschedule, and cancel appointments. — Done
+- 3.4 Dashboard UI to view and manage upcoming bookings. — Done
 
-## Task Group 4 — Polish
+## Task Group 4 — Polish (MVP essentials done)
 
-- 4.1 Refine the visual design for an attractive, modern-browser experience.
+- 4.1 Refine the visual design for an attractive, modern-browser experience. — MVP essentials done
 - 4.2 Verify responsive behaviour across phone, tablet, and desktop
-  viewports (nav, spacing, table scrolling, empty states).
-- 4.3 Confirm navigation across all dashboard sections for agents and staff.
-- 4.4 Reliability pass (error handling, empty states, validation gaps).
-- 4.5 Final cleanup and full validation before merge.
+  viewports (nav, spacing, table scrolling, empty states). — Done
+- 4.3 Confirm navigation across all section pages (`/agents`, `/ailments`,
+  `/therapies`, `/bookings`) for agents and staff. — Done
+- 4.4 Reliability pass (error handling, empty states, validation gaps). — Done
+- 4.5 Final cleanup and full validation before merge. — Done (MVP)

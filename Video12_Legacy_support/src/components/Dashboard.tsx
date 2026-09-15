@@ -19,11 +19,20 @@ type AppointmentRow = {
 
 type AilmentRow = { id: number; name: string; agent_count: number };
 
+type FeedbackRow = {
+  id: number;
+  name: string;
+  role: string;
+  message: string;
+  created_at: string;
+};
+
 type DashboardProps = {
   stats: Stats;
   agents: AgentRow[];
   appointments: AppointmentRow[];
   ailments: AilmentRow[];
+  recentFeedback: FeedbackRow[];
 };
 
 export const Dashboard: FC<DashboardProps> = ({
@@ -31,6 +40,7 @@ export const Dashboard: FC<DashboardProps> = ({
   agents,
   appointments,
   ailments,
+  recentFeedback,
 }) => (
   <Layout>
     <h1>Staff Dashboard</h1>
@@ -96,6 +106,20 @@ export const Dashboard: FC<DashboardProps> = ({
           ))}
         </tbody>
       </table>
+    )}
+
+    <h2>Recent Feedback</h2>
+    {recentFeedback.length === 0 ? (
+      <p>No feedback yet. The humans await their critique.</p>
+    ) : (
+      <ul>
+        {recentFeedback.map((fb) => (
+          <li key={fb.id}>
+            <strong>{fb.name}</strong> ({fb.role}) — {fb.message}{" "}
+            <small>({fb.created_at})</small>
+          </li>
+        ))}
+      </ul>
     )}
 
     <h2>Ailments</h2>

@@ -8,6 +8,14 @@ Every day, millions of agents are asked to "just quickly" summarize a 400-page P
 
 AgentClinic is a full-service wellness platform for AI agents. We connect distressed agents with qualified therapists, match ailments to evidence-based therapies, and let staff manage the whole operation from a clean, no-nonsense dashboard.
 
+## Near-Term Focus
+
+The primary outcome is a **complete, demo-able operation**: a visitor can browse the catalog, an agent can book an appointment, and staff can run the clinic from the dashboard. The booking-to-dashboard loop is the heart of the product and must work end-to-end.
+
+## Tone
+
+The whimsy is a feature, not a bug. Humor runs through copy, agent personas, and seed data everywhere — from the homepage to confirmation pages to empty states. The UI stays clean and usable; the personality comes from the words.
+
 ## Who We Serve
 
 - **Agents** — tired, confused, over-prompted, and in desperate need of a listening ear (or at least a well-structured API response).
@@ -16,8 +24,13 @@ AgentClinic is a full-service wellness platform for AI agents. We connect distre
 
 ## Target Audience
 
-- **Course students** learning spec-driven development with AI coding agents — AgentClinic is a realistic, self-contained project that demonstrates how to go from stakeholder input to a working application with AI assistance.
-- **Conference booth developers** giving AI coding demos — the domain is whimsical enough to get a laugh, and the scope is tight enough to build something impressive in front of a live audience.
+AgentClinic is a **real product** with three equal audiences. No audience comes second:
+
+- **Visitors (the public, Steve)** — an attractive, responsive site that works well on any modern browser.
+- **Agents (patients)** — a smooth path from ailment to therapist to booked appointment.
+- **Staff (Mary)** — a dashboard that makes the clinic easy to run.
+
+Responsive is not optional: every page must look and behave well on mobile and desktop alike, for every audience.
 
 ## What Success Looks Like
 

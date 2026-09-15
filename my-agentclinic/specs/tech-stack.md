@@ -11,4 +11,5 @@
   containers and CSS media queries; wide tables scroll horizontally in
   a `.table-wrap` container instead of breaking the page
 - **Dev tooling:** `tsc` for build, `tsx watch` for the dev server
-- **Testing:** Vitest for validation (unit + API smoke tests)
+- **Testing:** Vitest for validation (unit + API smoke tests), configured
+  via `vitest.config.ts`; test files live in the root `tests/` folder

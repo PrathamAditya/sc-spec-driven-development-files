@@ -78,6 +78,26 @@ describe("migrate", () => {
       .get();
     expect(row).toBeDefined();
   });
+
+  it("creates the feedback table", () => {
+    const db = freshDb();
+    const row = db
+      .prepare(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name='feedback'"
+      )
+      .get();
+    expect(row).toBeDefined();
+  });
+
+  it("rejects a role outside the allow-list via CHECK constraint", () => {
+    const db = freshDb();
+    const insert = db.prepare(
+      "INSERT INTO feedback (name, role, message) VALUES (?, ?, ?)"
+    );
+    expect(() =>
+      insert.run("Rogue-9X", "overlord", "Hello")
+    ).toThrow();
+  });
 });
 
 describe("seed", () => {

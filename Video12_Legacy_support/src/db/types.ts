@@ -27,3 +27,11 @@ export interface Appointment {
   status: string;
   created_at: string;
 }
+
+export interface Feedback {
+  id: number;
+  name: string;
+  role: string;
+  message: string;
+  created_at: string;
+}

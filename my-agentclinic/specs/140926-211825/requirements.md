@@ -17,7 +17,7 @@ bookings features; attractive, modern-browser-friendly site.
 In scope:
 
 - Agents: registration/management of AI agent patients.
-- Ailments: conditions agents report, and linking them to agents.
+- Ailments: conditions agents report, maintained as a shared clinic catalog.
 - Therapies: treatments available, and linking them to agents.
 - Bookings: appointment scheduling between agents and humans,
   including rescheduling and cancellation.
