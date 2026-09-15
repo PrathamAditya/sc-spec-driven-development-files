@@ -7,10 +7,13 @@ High-level implementation order in small phases of work.
 - **Phase 2 — Agents.** Data model and CRUD for agents; agent listing
   in the dashboard. REST API at `/api/agents` (list, get, create, patch,
   delete) with validation; dashboard at `/` rendered via the
-  Header/Main/Footer/Layout components and `public/styles.css`. — **Done**
+  Header/Main/Footer/Layout components and `public/styles.css`;
+  responsive layout (mobile-first media queries, horizontally
+  scrollable table). — **Done**
 - **Phase 3 — Ailments & Therapies.** Data model and CRUD for ailments
   and therapies; link agents to their therapies.
 - **Phase 4 — Bookings.** Appointment scheduling between agents and
   humans; view and manage bookings.
 - **Phase 5 — Polish.** Attractive, modern-browser-friendly UI; dashboard
-  for agents and staff; reliability and cleanup.
+  for agents and staff; responsive design verification across
+  phone/tablet/desktop; reliability and cleanup.

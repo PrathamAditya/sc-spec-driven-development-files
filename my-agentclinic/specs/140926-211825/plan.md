@@ -17,6 +17,8 @@ Series of numbered task groups derived from `specs/roadmap.md`.
 - 2.2 Validate input; return 400 on invalid payloads, 404 on missing agents, 204 on delete.
 - 2.3 Render an agents dashboard at `/` using the Header/Main/Footer/Layout components.
 - 2.4 Move styles to `public/styles.css` and serve via `express.static`.
+- 2.5 Make the layout responsive: mobile-first media queries and a
+  horizontally scrollable `.table-wrap` for tables.
 
 ## Task Group 3 — Ailments & Therapies (Next)
 
@@ -36,6 +38,8 @@ Series of numbered task groups derived from `specs/roadmap.md`.
 ## Task Group 5 — Polish
 
 - 5.1 Refine the visual design for an attractive, modern-browser experience.
-- 5.2 Confirm navigation across all dashboard sections for agents and staff.
-- 5.3 Reliability pass (error handling, empty states, validation gaps).
-- 5.4 Final cleanup and full validation before merge.
+- 5.2 Verify responsive behaviour across phone, tablet, and desktop
+  viewports (nav, spacing, table scrolling, empty states).
+- 5.3 Confirm navigation across all dashboard sections for agents and staff.
+- 5.4 Reliability pass (error handling, empty states, validation gaps).
+- 5.5 Final cleanup and full validation before merge.

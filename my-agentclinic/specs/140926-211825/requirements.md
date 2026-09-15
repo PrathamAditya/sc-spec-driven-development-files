@@ -23,6 +23,9 @@ In scope:
   including rescheduling and cancellation.
 - Dashboard: a single entry point for agents and staff to access all
   of the above.
+- Responsive design: pages remain usable and attractive on phones,
+  tablets, and desktops; tables scroll horizontally rather than
+  breaking the layout.
 - Reliability: sane validation, error responses, and an attractive UI.
 
 Out of scope (for now):
@@ -38,5 +41,7 @@ Out of scope (for now):
 - Server-rendered HTML, no client framework, built from components
   (`src/components`: Header, Main, Footer, Layout).
 - Styles in `public/styles.css`, served via `express.static`.
+- Responsive, mobile-first design: flexible containers, CSS media
+  queries, and horizontally scrollable tables.
 - Tooling: `tsc` for build, `tsx watch` for development.
 - Implementation order follows `specs/roadmap.md` in very small phases.

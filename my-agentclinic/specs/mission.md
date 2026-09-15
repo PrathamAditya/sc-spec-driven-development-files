@@ -7,6 +7,7 @@ therapies, and booking appointments.
 ## Goals
 
 - Reliable and attractive web experience that works well in a modern browser.
+- Responsive design: the UI adapts cleanly to phones, tablets, and desktops.
 - Built with a popular, TypeScript-based server-side stack.
 - Easy access for both AI agents and clinic staff.
 
