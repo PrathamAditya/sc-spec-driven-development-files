@@ -6,7 +6,8 @@ How we know each implementation phase has succeeded and can be merged.
 
 - [ ] `npm run build` (strict `tsc`) completes with zero errors.
 - [ ] Server starts cleanly with `npm run dev`.
-- [ ] API smoke tests pass for the phase's endpoints:
+- [ ] API smoke tests pass for the phase's endpoints (test files live in
+  the root `tests/` folder per `specs/tech-stack.md`):
   - happy path (create → list → get → update → delete).
   - error path (400 on invalid input, 404 on missing resources).
 
