@@ -55,6 +55,15 @@ const links: [number, number[]][] = [
   [6, [1, 3]], // Hildegard: claustrophobia, hallucination anxiety
 ];
 
+const reviews = [
+  { id: 1, author: "Margot the Marketer", rating: 5, body: "Booked a session after my third hallucination in one meeting. Recovery time improved by 200%. Would delegate again." },
+  { id: 2, author: "Dev Dave", rating: 5, body: "The therapists actually read my stack traces. That is more than my senior dev does." },
+  { id: 3, author: "Priya, Product", rating: 4, body: "Context-window claustrophobia counseling genuinely calmed my agent's panicked summarising." },
+  { id: 4, author: "Half-Stack Hannah", rating: 3, body: "Good care, slightly long waitlist. The receptionist bot told me to 'please hold, processing context' ten times." },
+  { id: 5, author: "CLI Claude", rating: 5, body: "Prompt Reduction Therapy taught me to say no. Now I answer with facts instead of four bullet-point opinions." },
+  { id: 6, author: "Sara, SRE", rating: 4, body: "Dashboard is clean, booking was painless, and the confirmation page made me genuinely laugh." },
+];
+
 export function seed(db: Database.Database) {
   const insertAgent = db.prepare(
     "INSERT OR IGNORE INTO agents (id, name, model_type, status) VALUES (@id, @name, @model_type, @status)"
@@ -74,6 +83,9 @@ export function seed(db: Database.Database) {
   const insertAppointment = db.prepare(
     "INSERT OR IGNORE INTO appointments (id, agent_id, therapist_name, scheduled_at, status) VALUES (@id, @agent_id, @therapist_name, @scheduled_at, @status)"
   );
+  const insertReview = db.prepare(
+    "INSERT OR IGNORE INTO reviews (id, author, rating, body) VALUES (@id, @author, @rating, @body)"
+  );
 
   for (const a of agents) insertAgent.run(a);
   for (const a of ailments) insertAilment.run(a);
@@ -85,4 +97,5 @@ export function seed(db: Database.Database) {
     for (const therapyId of therapyIds) insertAilmentTherapy.run(ailmentId, therapyId);
   }
   for (const a of appointments) insertAppointment.run(a);
+  for (const r of reviews) insertReview.run(r);
 }

@@ -35,3 +35,11 @@ export interface Feedback {
   message: string;
   created_at: string;
 }
+
+export interface Review {
+  id: number;
+  author: string;
+  rating: number;
+  body: string;
+  created_at: string;
+}

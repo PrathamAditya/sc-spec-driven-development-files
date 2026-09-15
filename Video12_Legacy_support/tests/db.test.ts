@@ -98,6 +98,24 @@ describe("migrate", () => {
       insert.run("Rogue-9X", "overlord", "Hello")
     ).toThrow();
   });
+
+  it("creates the reviews table", () => {
+    const db = freshDb();
+    const row = db
+      .prepare(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name='reviews'"
+      )
+      .get();
+    expect(row).toBeDefined();
+  });
+
+  it("rejects a rating outside 1–5 via CHECK constraint", () => {
+    const db = freshDb();
+    const insert = db.prepare(
+      "INSERT INTO reviews (author, rating, body) VALUES (?, ?, ?)"
+    );
+    expect(() => insert.run("Rogue-9X", 6, "Whoops")).toThrow();
+  });
 });
 
 describe("seed", () => {
@@ -183,6 +201,32 @@ describe("seed", () => {
     seed(db);
     const second = (
       db.prepare("SELECT COUNT(*) as count FROM therapies").get() as {
+        count: number;
+      }
+    ).count;
+    expect(second).toBe(first);
+  });
+
+  it("inserts at least 5 reviews after seeding", () => {
+    const db = freshDb();
+    seed(db);
+    const { count } = db
+      .prepare("SELECT COUNT(*) as count FROM reviews")
+      .get() as { count: number };
+    expect(count).toBeGreaterThanOrEqual(5);
+  });
+
+  it("seed reviews are idempotent — seeding twice does not duplicate rows", () => {
+    const db = freshDb();
+    seed(db);
+    const first = (
+      db.prepare("SELECT COUNT(*) as count FROM reviews").get() as {
+        count: number;
+      }
+    ).count;
+    seed(db);
+    const second = (
+      db.prepare("SELECT COUNT(*) as count FROM reviews").get() as {
         count: number;
       }
     ).count;
