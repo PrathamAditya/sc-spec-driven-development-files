@@ -38,5 +38,14 @@ export function runMigrations(): void {
       created_at TEXT NOT NULL DEFAULT (datetime('now')),
       PRIMARY KEY (agent_id, therapy_id)
     );
+
+    CREATE TABLE IF NOT EXISTS appointments (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      agent_id INTEGER NOT NULL REFERENCES agents(id) ON DELETE CASCADE,
+      human TEXT,
+      starts_at TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'scheduled' CHECK (status IN ('scheduled', 'cancelled')),
+      created_at TEXT NOT NULL DEFAULT (datetime('now'))
+    );
   `)
 }

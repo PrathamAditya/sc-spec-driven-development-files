@@ -2,7 +2,7 @@ import { header } from './Header'
 import { main } from './Main'
 import { footer } from './Footer'
 
-export function layout({ title, body }: { title: string; body: string }): string {
+export function layout({ title, body, current = '/' }: { title: string; body: string; current?: string }): string {
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +12,7 @@ export function layout({ title, body }: { title: string; body: string }): string
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    ${header()}
+    ${header(current)}
     ${main(body)}
     ${footer()}
   </body>

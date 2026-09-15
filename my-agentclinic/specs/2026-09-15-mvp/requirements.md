@@ -25,11 +25,14 @@ In scope (full demoable MVP):
   assignments.
 - `appointments` entity: an agent books a slot with a human
   (agent_id, human, starts_at, status).
-- Bookings CRUD: `/api/bookings` and `/api/agents/:id/bookings`
-  (create, list, get, reschedule, cancel, delete), with 400/404/204
-  conventions.
-- One-page dashboard covering Agents, Ailments, Therapies, and Bookings,
-  with navigation, empty states, and a responsive layout.
+- Bookings CRUD: `/api/bookings` (create, list, get, reschedule, cancel,
+  delete) with 400/404/204 conventions; scoped booking list at
+  `/api/agents/:id/bookings`.
+- Dashboard and section pages covering Agents, Ailments, Therapies, and
+  Bookings, with navigation, active-link state, empty states, and a
+  responsive layout.
+- Navigation works as real page links (header nav → `/agents`, `/ailments`,
+  `/therapies`, `/bookings`); `/` is the all-sections overview.
 - Vitest unit + API smoke tests for the bookings endpoints.
 
 Out of scope (post-MVP):

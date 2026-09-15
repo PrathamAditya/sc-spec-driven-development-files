@@ -103,3 +103,12 @@ agentsRouter.delete('/:id/therapies/:therapyId', (req, res) => {
   if (result.changes === 0) return res.status(404).json({ error: 'Assignment not found' })
   res.status(204).end()
 })
+
+agentsRouter.get('/:id/bookings', (req, res) => {
+  const agent = db.prepare('SELECT * FROM agents WHERE id = ?').get(Number(req.params.id)) as AgentRow | undefined
+  if (!agent) return res.status(404).json({ error: 'Agent not found' })
+  const bookings = db
+    .prepare('SELECT * FROM appointments WHERE agent_id = ? ORDER BY starts_at, id')
+    .all(agent.id)
+  res.json(bookings)
+})
