@@ -14,6 +14,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   background: #1f2a44;
   color: #fff;
@@ -43,6 +45,19 @@ body {
   padding: 2rem 1.5rem;
 }
 
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  min-width: 28rem;
+}
+
 .site-footer {
   padding: 1rem 1.5rem;
   text-align: center;
@@ -55,13 +70,6 @@ body {
 
 h1 { font-size: 1.5rem; margin-top: 0; }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  border: 1px solid #ddd;
-}
-
 th, td {
   border: 1px solid #ddd;
   padding: 0.5rem;
@@ -70,4 +78,18 @@ th, td {
 
 th {
   background: #eef2f7;
+}
+
+@media (max-width: 40rem) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-main,
+  .site-footer {
+    padding: 1.25rem 1rem;
+  }
+
+  h1 { font-size: 1.25rem; }
 }

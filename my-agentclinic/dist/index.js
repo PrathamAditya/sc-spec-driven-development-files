@@ -27,10 +27,12 @@ app.get('/', (_req, res) => {
 </tr>`)
         .join('');
     const table = `<h1>Agents</h1>
-<table>
-  <thead><tr><th>ID</th><th>Name</th><th>Species</th><th>Created</th></tr></thead>
-  <tbody>${rows === '' ? '<tr><td colspan="4">No agents yet</td></tr>' : rows}</tbody>
-</table>`;
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>ID</th><th>Name</th><th>Species</th><th>Created</th></tr></thead>
+    <tbody>${rows === '' ? '<tr><td colspan="4">No agents yet</td></tr>' : rows}</tbody>
+  </table>
+</div>`;
     res.set('Content-Type', 'text/html').send((0, Layout_1.layout)({ title: 'Agents', body: table }));
 });
 app.listen(PORT, () => {

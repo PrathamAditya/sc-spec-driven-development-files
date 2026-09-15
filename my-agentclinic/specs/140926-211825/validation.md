@@ -14,6 +14,8 @@ How we know each implementation phase has succeeded and can be merged.
 
 - [ ] Dashboard pages render correctly in a modern browser.
 - [ ] Header, main, and footer layout render with `public/styles.css` applied.
+- [ ] Layout is responsive: usable on small (mobile) and large (desktop)
+  viewports; tables scroll horizontally without breaking the page.
 - [ ] Empty states are sensible (e.g. "No agents yet").
 - [ ] Data persists across server restarts (SQLite file grows as expected).
 
